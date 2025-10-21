@@ -2,6 +2,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import { globalErr, log } from './middleware/middleware.mjs';
 
 // Setups
 dotenv.config();
@@ -11,19 +12,15 @@ const app = express();
 // DB Connection
 
 
+
 // Middleware
 app.use (express.json());
-app.use((req, _res, next) => {
-    console.log(`${req.method} - ${req.path}`);
-    next();
-});
+app.use(log)
 
 // Routes
 
 // Global Err Handling
-app.use((err, req, res, next) => {
-    res.json( {msg:`❌ Error - ${err.message}`})
-});
+app.use(globalErr);
 // Listener
 app.listen(PORT, () => {
     console.log(`Server Running on PORT: ${PORT}`);
