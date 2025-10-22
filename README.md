@@ -76,3 +76,27 @@ Create a full-stack web application using MongoDB, Express, React, and Node (MER
 | Needs Review            | 🔍    | `🔍`             |
 | Optional / Nice to Have | ✴️    | `✴️`             |
 
+
+# Schemas
+```js
+const userSchema {
+_id
+Username: String,
+isParent: boolean,
+child: String {
+[ account, account, …]
+},
+}
+
+const videoSchema {
+title: String,
+*playlist: [],
+*watched: boolean,
+*viewed: boolean,
+url: String,
+userId: String
+}
+```
+
+## References
+Models Documentation - https://mongoosejs.com/docs/models.html
