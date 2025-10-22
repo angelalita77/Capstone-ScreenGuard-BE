@@ -1,5 +1,10 @@
+
 import mongoose from 'mongoose';
 
+// ============================================
+// MODELS - /models/userSchema.js
+// This will have the model for sthe user accounts
+// ============================================
 
 const userSchema = new mongoose.Schema ({
 username: {
