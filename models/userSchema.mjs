@@ -21,23 +21,23 @@ email: {
     },
 password: {
     type: String,
-    required: true,
-    minlength: 6
+    required: [true, 'Password is required'],
+    minlength: [6, 'Password must be at least 6 characters']
 },
-role: [{
-    type: String,
-    enum: ['parent', 'child'],
-    required: true 
-    }],
-parentId: {
-    type: mongoose.Schema.TypesObjectId,
-    ref: 'User',
-    default: null
-},
-children: [{
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: User // It will reference "Child" user IDs linked to parent
-}]
+// role: [{
+//     type: String,
+//     enum: ['parent', 'child'],
+//     required: true 
+//     }],
+// parentId: {
+//     type: mongoose.Schema.TypesObjectId,
+//     ref: 'User',
+//     default: null
+// },
+// children: [{
+//     type: mongoose.Schema.Types.ObjectId, 
+//     ref: User // It will reference "Child" user IDs linked to parent
+// }]
 
 }, {
     timestamp: true

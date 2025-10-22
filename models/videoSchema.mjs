@@ -30,44 +30,34 @@ const videoSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    duration: {
-        type: String,
-        default: ''
-    },
-    childId: {
-        type: mongoose.Schema.TypesObjectId,
-        ref: 'User',
-        required: true //Which child this video is approved for
-    },
-    parentId: {
-        type: mongoose.Schema.TypesObjectId,
-        ref: 'User',
-        required: true //which parent approved
-    },
-    views: {
-    type: Number,
-    default: 0
-  },
-  lastWatched: {
-    type: Date,
-    default: null
-  },
-  addedAt: {
-    type: Date,
-    default: Date.now
-  }
+    // duration: {
+    //     type: String,
+    //     default: ''
+    // },
+    // childId: {
+    //     type: mongoose.Schema.TypesObjectId,
+    //     ref: 'User',
+    //     required: true //Which child this video is approved for
+    // },
+    // parentId: {
+    //     type: mongoose.Schema.TypesObjectId,
+    //     ref: 'User',
+    //     required: true //which parent approved
+    // },
+    // views: {
+    //     type: Number,
+    //     default: 0
+
+    // }
 }, {
     timestamp: true
 });
 
 // create index
-videoSchema.index({
-    title: 1,
-    childId: 1
-});
+videoSchema.index({ title: 1 });
 
 //Export
-export default mongoose.model("videos", videoSchema);
+export default mongoose.model("Videos", videoSchema);
 
 
 

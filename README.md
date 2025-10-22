@@ -33,19 +33,19 @@ Create a full-stack web application using MongoDB, Express, React, and Node (MER
 🗄️ Database (9%)
 | Task Description                                                                  | Status | Notes |
 | --------------------------------------------------------------------------------- | ------ | ----- |
-| Use MongoDB to create a database for your application                             | `🟡`     | 5%    |
-| Apply appropriate indexes to your database collections                            | `🟡`     | 2%    |
-| Create reasonable schemas for your data by following data modeling best practices | `🟡`    | 2%    |
+| Use MongoDB to create a database for your application                             | `✅`     | 5%    |
+| Apply appropriate indexes to your database collections                            | `✅`     | 2%    |
+| Create reasonable schemas for your data by following data modeling best practices | `✅`    | 2%    |
 
 
 🧾 Project Requirements Checklist
 🖥️ Server (19%)
 | Task Description                                                                      | Status | Notes |
 | ------------------------------------------------------------------------------------- | ------ | ----- |
-| Create a RESTful API using Node and Express *(HATEOAS may be omitted)*                | [ ]    | 7%    |
-| Include API routes for all four CRUD operations                                       | [ ]    | 5%    |
-| Utilize the native MongoDB driver or Mongoose to interface with your database         | [ ]    | 5%    |
-| Include at least one form of user authentication/authorization within the application | [ ]    | 2%    |
+| Create a RESTful API using Node and Express *(HATEOAS may be omitted)*                | `🟡`      | 7%    |
+| Include API routes for all four CRUD operations                                       | `🟡`      | 5%    |
+| Utilize the native MongoDB driver or Mongoose to interface with your database         | `🟡`      | 5%    |
+| Include at least one form of user authentication/authorization within the application | `✴️`      | 2%    |
 
 💻 Front-End Development (35%)
 | Task Description                                                          | Status | Notes |
@@ -77,7 +77,7 @@ Create a full-stack web application using MongoDB, Express, React, and Node (MER
 | Optional / Nice to Have | ✴️    | `✴️`             |
 
 
-# Schemas
+# Planned Schemas
 ```js
 const userSchema {
 _id
@@ -99,14 +99,55 @@ userId: String
 ```
 
 ## Routes
-`POST /api/auth/register/parent` - Register parent account <br>
+
+## User Routes (Second if possible)
+`POST /api/auth/register/` - Register parent account <br>
+    - be able to add account <br>
+    - see if user exist if it doesn't create new user <br>
 `POST /api/auth/login` - Login <br>
-`POST /api/children` - Create child account <br>
-`GET /api/videos/search?` - Search YouTube <br>
+<!-- `POST /api/children` - Create child account <br> -->
+<!-- `GET /api/videos/search?` - Search YouTube <br> -->
+
+## Video Routes (First)
 `POST /api/videos` - Add video to playlist <br>
-`GET /api/videos/child/:childId` - Get approved videos <br>
+<!-- `GET /api/videos/child/:childId` - Get approved videos <br> -->
+`GET /api/videos/child/` - Get approved videos <br>
 `DELETE /api/videos/:videoId` - Remove video <br>
-`PATCH /api/children/:childId` - Update child info <br>
+<!-- `PATCH /api/children/:childId` - Update child info <br> -->
+`PUT /api/videos/:videoId`- Update approved videos <br>
 
 ## References
 Models Documentation - https://mongoosejs.com/docs/models.html
+
+
+### These are YouTube API snippet I would use to POST
+```json
+  {
+    "videoId": "Mv4mYtzyCdY",
+    "title": "Nujabes inspired Lo-fi ☔️ Rain atmosphere / Jazzy Chillhop Playlist",
+    "description": "A relaxing 3-hour lo-fi mix in the style of Nujabes, featuring jazzy hip-hop beats set to a rainy atmosphere. Perfect for studying, working, or chilling.",
+    "thumbnail": [
+      "https://img.youtube.com/vi/Mv4mYtzyCdY/hqdefault.jpg"
+    ],
+    "channel": "chill chill journal"
+  },
+  {
+    "videoId": "lC5d326QkS0",
+    "title": "Solar System 101 | National Geographic",
+    "description": "National Geographic Kids explains the fascinating wonders of the solar system, including the sun, planets, and other celestial bodies. A great overview of space for young learners.",
+    "thumbnail": [
+      "https://img.youtube.com/vi/lC5d326QkS0/hqdefault.jpg"
+    ],
+    "channel": "National Geographic"
+  },
+  {
+    "videoId": "K8gEwKx-K2c",
+    "title": "The Big Numbers Song - Learning Counting and Numbers",
+    "description": "A fun and catchy animated song for kids that helps them learn to count and recognize large numbers, presented by a popular educational channel.",
+    "thumbnail": [
+      "https://img.youtube.com/vi/K8gEwKx-K2c/hqdefault.jpg"
+    ],
+    "channel": "Kids Learning Tube"
+  }
+]
+```

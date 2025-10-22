@@ -4,6 +4,9 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import { globalErr, log } from './middleware/middleware.mjs';
 import connectDB from './db/conn.mjs';
+import userRoutes from "./routes/userRoutes.mjs"
+import videoRoutes from "./routes/videoRoutes.mjs"
+
 
 // Setups
 dotenv.config();
@@ -19,6 +22,8 @@ app.use (express.json());
 app.use(log)
 
 // Routes
+app.use("/api/register/parent", userRoutes)
+app.use("/api/videos", videoRoutes);
 
 // Global Err Handling
 app.use(globalErr);
