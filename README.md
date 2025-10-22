@@ -98,5 +98,15 @@ userId: String
 }
 ```
 
+## Routes
+`POST /api/auth/register/parent` - Register parent account <br>
+`POST /api/auth/login` - Login <br>
+`POST /api/children` - Create child account <br>
+`GET /api/videos/search?` - Search YouTube <br>
+`POST /api/videos` - Add video to playlist <br>
+`GET /api/videos/child/:childId` - Get approved videos <br>
+`DELETE /api/videos/:videoId` - Remove video <br>
+`PATCH /api/children/:childId` - Update child info <br>
+
 ## References
 Models Documentation - https://mongoosejs.com/docs/models.html
