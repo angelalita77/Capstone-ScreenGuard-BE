@@ -15,6 +15,32 @@ dotenv.config();
 //         res.send("Videos Test")
 //     });
 
+
+// READ: SEARCH -------------------
+// @route: GET /api/videos/search
+// @desc: Search Videos by Title Query
+// @access: Public
+router
+.route("/search")
+.get(async (req, res) => {
+    try {
+        const { q } = req.query; // Get the search term from the query parameter 'q'
+
+        if (!q) {
+            return res.status(400).json({ msg: "Search query 'q' is required" });
+        }
+
+        // Case-insensitive search ONLY on the 'title' field
+        const videos = await Videos.find({
+            title: { $regex: q, $options: 'i' }
+        }).limit(10); // Limit results for performance
+
+        res.json(videos);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // CREATE-----------------------
 // @route: POST /api/videos
 // @desc: POST Route
@@ -27,7 +53,7 @@ router
 
 })
 
-// READ----------------
+// READ-----------------------
 // @route: GET /api/videos
 // @desc: GET All Videos Route
 // @access: Public
@@ -47,13 +73,17 @@ router
             return res.status(404).json({ msg: "Video not found" });
     }
     res.json(video);
-})
+});
+
+
 
 
 // UPDATE------------------
 // @route: PUT /api/videos/:id
 // @desc: Update Single Video by ID Route (UPDATE)
 // @access: Public
+router
+.route("/:id")
 .put(async (req, res) => {
     let updateVideo = await Videos.findByIdAndUpdate(req.params.id, req.body, 
         {new: true}
@@ -74,5 +104,7 @@ router
         res.json(deletedAvian);
     }
 });
+
+
 
 export default router;

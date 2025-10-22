@@ -4,6 +4,10 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import { globalErr, log } from './middleware/middleware.mjs';
 import connectDB from './db/conn.mjs';
+import cors from 'cors';
+
+
+//Import Routes
 import userRoutes from "./routes/userRoutes.mjs"
 import videoRoutes from "./routes/videoRoutes.mjs"
 
@@ -18,8 +22,10 @@ connectDB();
 
 
 // Middleware
+app.use(cors());
 app.use (express.json());
 app.use(log)
+
 
 // Routes
 app.use("/api/register/parent", userRoutes)
