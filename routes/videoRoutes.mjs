@@ -1,6 +1,7 @@
 import { Router } from "express";
 import dotenv from 'dotenv';
 import Videos from "../models/videoSchema.mjs";
+import { videoSnippets } from "../data/videoSnippets.mjs";
 
 const router = Router();
 dotenv.config();
@@ -62,6 +63,18 @@ router
     res.json(getVideos);
 });
 
+
+router
+.route("/seed")
+.get(async (req, res) => {
+    try {
+        await Videos.create(videoSnippets);
+        res.send("Successful Seeding");
+    } catch (err) {
+        res.send("ERROR Seeding Failed!");
+    }
+})
+
 // @route: GET /api/videos/:id
 // @desc: GET Video by id
 // @access: Public
@@ -104,6 +117,7 @@ router
         res.json(deletedAvian);
     }
 });
+
 
 
 
