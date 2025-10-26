@@ -41,7 +41,26 @@ The ScreenGuard backend provides a secure API for managing approved YouTube vide
 - MongoDB (local installation or MongoDB Atlas account)
 - npm
 
-
+## 📁 Project Structure
+```
+screenguard_be/
+├── db/
+│   └── conn.mjs              # MongoDB connection configuration
+├── middleware/
+│   └── middleware.mjs        # Global error handler & logging
+├── models/
+│   ├── userSchema.mjs        # User data model
+│   └── videoSchema.mjs       # Video data model
+├── routes/
+│   ├── authRoutes.mjs        # Authentication routes (in development)
+│   ├── userRoutes.mjs        # User registration routes (in development)
+│   └── videoRoutes.mjs       # Video CRUD routes
+├── data/
+│   └── videoSnippets.mjs     # Seed data for videos
+├── .env                      # Environment variables (not committed)
+├── server.mjs                # Main server file
+└── package.json
+```
 
 # Video Model
 ```js
