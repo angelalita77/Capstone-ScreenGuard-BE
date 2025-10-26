@@ -1,20 +1,46 @@
-# ScreenGuard - BackEnd
+# 🛡️ ScreenGuard Backend API
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
 ### Description:
-ScreenGuard is a web application designed to help parents curate safe YouTube content for their children. Due to time constraints, the current implementation focuses on core video management functionality without full authentication.
+RESTful API backend for ScreenGuard - a parent-controlled YouTube video curation platform. This server handles video management.
+Future Development: user authentication, and database operations.
+
+### 📋 Overview
+The ScreenGuard backend provides a secure API for managing approved YouTube videos and user accounts. It connects to MongoDB for data persistence and includes middleware for error handling, logging, and CORS support.<br>
+
 
 ## Link to my Front-End Repo
 ### [ScreenGuard Front-End](https://github.com/angelalita77/Capstone-ScreenGuard-FE)<br/><br/>
 
+### ✨ Features
+- RESTful API - Complete CRUD operations for video management
+- MongoDB Integration - Persistent data storage with Mongoose ODM
+- Video Search - Search approved videos by title with regex matching
+- User Management - User registration and authentication routes
+- `Validation` - Input validation using express-validator
+- `Error Handling` - Global error handling middleware
+- CORS Support - Cross-origin resource sharing enabled
+- Database Seeding - Quick setup with sample data
+- Request Logging - Track all incoming requests
 
-## Technologies Used:
-- Runtime: Node.js with ES Modules
-- Framework: Express.js
-- Database: MongoDB with Mongoose ODM
+### 🛠️ Tech Stack
+- Runtime: Node.js
+- Framework: Express.js 5.1.0
+- Database: MongoDB with Mongoose 8.19.2
+- Validation: express-validator 7.2.1
+- Environment: dotenv 17.2.3
+- CORS: cors 2.8.5
+- Dev Tools: nodemon 3.1.10
 
-### Key Dependencies:
-- cors - Cross-Origin Resource Sharing
-- dotenv - Environment variable management
-- express-validator - Input validation
+### ⚙️ Prerequisites
+- Node.js (v16 or higher)
+- MongoDB (local installation or MongoDB Atlas account)
+- npm
+
 
 
 # Video Model
@@ -67,6 +93,27 @@ ScreenGuard is a web application designed to help parents curate safe YouTube co
  - Video view tracking
  - API documentation
  - Unit and integration tests
+
+
+
+### 📦 Installation
+
+*Clone the repository*<br>
+`git clone <your-repo-url>`<br>
+`cd screenguard_be`
+
+*Install dependencies*<br>
+`npm install`
+
+*Create a .env file in the root directory*<br>
+`envPORT=3000`<br>
+`mongoURI=your_mongodb_connection_string`
+
+*Start MongoDB*
+
+*Start the development server*<br>
+`npm run dev` <br>
+The server will run on http://localhost:3000 (or your specified PORT)
 
 ## Contributing
 ## This is a Perscholas Capstone
