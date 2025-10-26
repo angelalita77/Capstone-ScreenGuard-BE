@@ -102,6 +102,7 @@ screenguard_be/
   }
 
 ```
+
 🚧 Future Enhancements
  - Complete authentication system (JWT tokens)
  - Password hashing with bcrypt
