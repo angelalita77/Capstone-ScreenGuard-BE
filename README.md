@@ -88,7 +88,7 @@ screenguard_be/
 
 
 ### Example of the Youtube API snippet
-```json
+```js
 {
     videoId: "Fwv2gnCFDOc",
     title: "Nujabes - Luv(sic.) pt3 (feat. Shing02) [Official Audio]",
