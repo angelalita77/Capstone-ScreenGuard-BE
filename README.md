@@ -135,6 +135,9 @@ screenguard_be/
 `npm run dev` <br>
 The server will run on http://localhost:3000 (or your specified PORT)
 
+## Project was Managed by Jira
+https://anjeanette.atlassian.net/jira/software/projects/SGW/boards/35
+
 ## Contributing
 ## This is a Perscholas Capstone
 Version 1.0, 08/14/23
