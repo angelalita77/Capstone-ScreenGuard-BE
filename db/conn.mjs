@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 // load environment variables from a .env file into process.env
 dotenv.config()
 
-const connectionStr = process.env.mongoURI || "";
+const connectionStr = process.env.MONGODB_URI || "";
 
 //initiate connection to MongoDB database
 async function connectDB() {
