@@ -21,26 +21,26 @@ dotenv.config();
 // @route: GET /api/videos/search
 // @desc: Search Videos by Title Query
 // @access: Public
-router
-.route("/search")
-.get(async (req, res) => {
-    try {
-        const { q } = req.query; // Get the search term from the query parameter 'q'
+// router
+// .route("/search")
+// .get(async (req, res) => {
+//     try {
+//         const { q } = req.query; // Get the search term from the query parameter 'q'
 
-        if (!q) {
-            return res.status(400).json({ msg: "Search query 'q' is required" });
-        }
+//         if (!q) {
+//             return res.status(400).json({ msg: "Search query 'q' is required" });
+//         }
 
-        // Case-insensitive search ONLY on the 'title' field
-        const videos = await Videos.find({
-            title: { $regex: q, $options: 'i' }
-        }).limit(10); // Limit results for performance
+//         // Case-insensitive search ONLY on the 'title' field
+//         const videos = await Videos.find({
+//             title: { $regex: q, $options: 'i' }
+//         }).limit(10); // Limit results for performance
 
-        res.json(videos);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
+//         res.json(videos);
+//     } catch (err) {
+//         res.status(500).json({ error: err.message });
+//     }
+// });
 
 // CREATE-----------------------
 // @route: POST /api/videos

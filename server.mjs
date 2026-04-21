@@ -10,6 +10,7 @@ import cors from 'cors';
 //Import Routes
 import userRoutes from "./routes/userRoutes.mjs"
 import videoRoutes from "./routes/videoRoutes.mjs"
+import youtubeRoutes from "./routes/youtubeRoutes.mjs";
 
 
 // Setups
@@ -30,6 +31,7 @@ app.use(log);
 // Routes
 //app.use("/api/register/parent", userRoutes)
 app.use("/api/videos", videoRoutes);
+app.use("/api/youtube", youtubeRoutes);
 
 // Global Err Handling
 app.use(globalErr);

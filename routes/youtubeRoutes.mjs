@@ -4,9 +4,14 @@ import dotenv from 'dotenv';
 const router = Router();
 dotenv.config();
 
+
+// READ: SEARCH -------------------
+// @route: GET /api/videos/search
+// @desc: Search Videos by Title Query
+// @access: Public
 router
-.rourter
-.get("/search", async(req, res) => {
+.route("/search")
+.get(async(req, res) => {
     try{
         const {q} = req.query;
 
@@ -22,7 +27,7 @@ router
             part: "snippet",
             q,
             type: "video",
-            maxResults: 10,
+            maxResults: 3,
             key: process.env.GOOGLE_API_KEY
         });
         const response = await fetch(url);
@@ -31,7 +36,7 @@ router
         const videos = data.items?.filter(
             (item) => item.id.kind === "youtube#video"
         );
-        
+
         res.json({ videos });
 
     } catch (err) {
